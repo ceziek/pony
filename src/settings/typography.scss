@@ -1,0 +1,43 @@
+h1,
+h2,
+h3,
+h5,
+p,
+span,
+label,
+.button-default {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 100;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 100;
+  margin: 0 0 0.8rem 0;
+}
+
+span,
+label {
+  font-size: 1.2rem;
+}

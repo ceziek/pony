@@ -1,0 +1,52 @@
+.Home {
+  margin: 1rem;
+  .wrapper {
+    position: relative;
+    //background-color: #7AEA89;
+    background-color: rgb(140, 195, 132);
+    border: 1rem solid #fff;
+    box-shadow: 0 .2rem 1.5rem 0.2rem #3d3d3d;
+    &:after {
+      position: absolute;
+      content: '';
+
+      bottom:0; left: 0; right: 0;
+      height: 20%;
+      background-color: #559851;
+      z-index: 0;
+    }
+    &.flex {
+      & > * {
+        z-index: 1;
+        flex-flow: column;
+        align-self: stretch;
+        &:first-child,
+        &:last-child {
+          flex-basis: 25%;
+        }
+        &:nth-child(2) {
+          flex-basis: 50%;
+        }
+      }
+      a {
+        margin: 2rem;
+        text-align: center;
+        width: 100%;
+      }
+      img {
+        width: 100%;
+      }
+      .contact {
+        width: 20%;
+      }
+      .picture,
+      .blog {
+        width: 50%;
+      }
+      .fruits,
+      .drinks {
+        width: 80%;
+      }
+    }
+  }
+}

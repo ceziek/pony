@@ -1,0 +1,25 @@
+.Posts {
+  flex-flow: column;
+  margin: 1rem;
+  .wrapper {
+    background-color: rgb(140, 195, 132);
+    border: 1rem solid #fff;
+    box-shadow: 0 .2rem 1.5rem 0.2rem #3d3d3d;
+  }
+}
+
+.Post {
+  width: 60%;
+  background-color: #e7e8e8;
+  padding: 1rem;
+
+  h2,
+  p {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #9d9e9e;
+  }
+  p {
+    text-align: left;
+  }
+}
