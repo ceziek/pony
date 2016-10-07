@@ -7,17 +7,58 @@ import './Posts.scss';
 class Posts extends Component {
     constructor() {
         super();
+
+        this.keys = {
+            posts: 'posts.list',
+            time: 'posts.time'
+        };
+
         this.state = {
             posts: []
         };
     }
 
     componentDidMount() {
-        $.get('http://localhost:3001/posts', (posts) => {
-            this.setState({
-                posts: posts
-            });
-        }).fail((error) => console.log(error , "user"));
+
+        // check if there are posts already
+
+        let cached = window.localStorage.getItem(this.keys.posts);
+
+        if (cached) {
+            cached = JSON.parse(cached);
+
+            if (cached.length) {
+                this.setState({
+                    posts: cached
+                });
+            }
+        }
+
+        let timeSinceLastUpdate = Date.now() - this.getListTime();
+
+
+        if (timeSinceLastUpdate > 12000) {
+            $.get('http://localhost:3001/posts', (posts) => {
+                this.saveList(posts);
+                this.setState({
+                    posts: posts
+                });
+            }).fail((error) => console.log(error , "user"));
+        }
+    }
+
+    getListTime() {
+        return Number(window.localStorage.getItem(this.keys.time));
+    }
+
+    touchList() {
+        window.localStorage.setItem(this.keys.time, Date.now());
+        
+    }
+    
+    saveList(list = this.state.posts) {
+        window.localStorage.setItem(this.keys.posts, JSON.stringify(list));
+        this.touchList();
     }
 
     render() {
@@ -31,7 +72,6 @@ class Posts extends Component {
                 </div>
             )
         });
-        console.log(posts);
         return (
             <div className="Posts">
                 <div className="wrapper flex">
