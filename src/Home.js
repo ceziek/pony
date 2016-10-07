@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 
 import logo from './assets/img/logo.png';
 import drinks from './assets/img/drinks.png';
@@ -15,7 +16,7 @@ class Home extends Component {
             <div className="Home">
                 <div className="wrapper flex">
                     <div className="flex">
-                        <a href="#"><img src={blog} alt="" className="blog"/></a>
+                        <Link to="/posts"><img src={blog} alt="" className="blog"/></Link>
                         <a href="#"><img src={drinks} alt="" className="drinks"/></a>
 
                     </div>
@@ -32,6 +33,5 @@ class Home extends Component {
         );
     }
 }
-
 
 export default Home;

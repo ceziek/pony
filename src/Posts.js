@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
+import {Link} from 'react-router';
 
 import './Posts.scss';
 
@@ -12,11 +13,11 @@ class Posts extends Component {
     }
 
     componentDidMount() {
-        $.get('http://192.168.8.102:3000/posts', (posts) => {
+        $.get('http://localhost:3001/posts', (posts) => {
             this.setState({
                 posts: posts
             });
-        })
+        }).fail((error) => console.log(error , "user"));
     }
 
     render() {
@@ -32,9 +33,11 @@ class Posts extends Component {
         });
         console.log(posts);
         return (
-            <div className="Posts flex">
-                <input type="text"/>
-                {posts}
+            <div className="Posts">
+                <div className="wrapper flex">
+                    <Link to="/">Back</Link>
+                    {posts}
+                </div>
             </div>
         );
     }
